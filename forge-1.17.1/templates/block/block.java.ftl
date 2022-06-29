@@ -636,7 +636,13 @@ public class ${name}Block extends
 					<#if data.tintType == "Grass">
 						BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D);
 					<#elseif data.tintType == "Foliage">
-						BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor();
+						FoliageColor.getDefaultColor() : BiomeColors.getAverageFoliageColor(world, pos);
+					<#elseif data.tintType == "Foliage birch">
+						FoliageColor.getBirch() : BiomeColors.getAverageFoliageColor(world, pos);
+					<#elseif data.tintType == "Foliage spurce">
+						FoliageColor.getSpruce() : BiomeColors.getAverageFoliageColor(world, pos);
+					<#elseif data.tintType == "Foliage biome">
+						BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault();
 					<#elseif data.tintType == "Water">
 						BiomeColors.getAverageWaterColor(world, pos) : -1;
 					<#elseif data.tintType == "Sky">
@@ -655,7 +661,13 @@ public class ${name}Block extends
 				<#if data.tintType == "Grass">
 					return GrassColor.get(0.5D, 1.0D);
 				<#elseif data.tintType == "Foliage">
-					return FoliageColor.getDefaultColor();
+					return FoliageColors.getDefault();
+				<#elseif data.tintType == "Foliage birch">
+					return FoliageColors.getBirch();
+				<#elseif data.tintType == "Foliage spruce">
+					return FoliageColors.getSpruce();
+				<#elseif data.tintType == "Foliage biome">
+					return FoliageColors.getDefault();
 				<#elseif data.tintType == "Water">
 					return 3694022;
 				<#elseif data.tintType == "Sky">
